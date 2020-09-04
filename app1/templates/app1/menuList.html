@@ -1,0 +1,13 @@
+{% for menu in menuList %}
+	{% if menu.parent is None %}
+		<li>{{menu.name}}
+			<ul>
+			{% for item in menuList %}
+			{% if item.parent.name == menu.name %}
+				<li>{{item.name}}</li>
+			{% endif %}
+			{% endfor %}
+			</ul>
+		</li>
+	{% endif %}
+{% endfor %}
